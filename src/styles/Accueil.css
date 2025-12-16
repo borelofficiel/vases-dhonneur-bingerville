@@ -1,0 +1,216 @@
+/* Hero Slider global */
+.hero-slider {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Chaque slide */
+.slide {
+  opacity: 0;
+  transition: all 1s ease;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Image de fond floue et sombre */
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit; /* hérite de l'image définie sur .slide */
+  background-size: cover; /* couvre tout le conteneur */
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: blur(6px) brightness(0.5);
+  z-index: 0;
+}
+
+/* Slide actif */
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Contenu du slide */
+/* Contenu du slide : à droite et centré verticalement */
+.slide-content {
+  position: absolute;
+  top: 50%;              /* centre verticalement */
+  left: 50px;           /* distance du bord droit */
+  transform: translateY(-50%); /* ajuste pour être parfaitement centré verticalement */
+  color: #ffffff;
+  text-align: left;     /* texte aligné à droite */
+  padding: 20px 40px;
+  border-radius: 10px;
+  width: auto;
+  max-width: 40%;        /* limite la largeur du texte */
+  z-index: 2;            /* au-dessus de l’image */
+}
+
+
+/* Titre */
+.slide-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+/* Description */
+.slide-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Bouton */
+.btn-participer {
+  background-color: #c9a24d;
+  color: #ffffff;
+  padding: 10px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-participer:hover {
+  background-color: #b18f3f;
+}
+
+/* Flèches */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #fdfdfd;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.3s;
+}
+
+.arrow:hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .slide-content {
+    bottom: 20px;
+    padding: 10px 15px;
+    max-width: 95%;
+  }
+
+  .slide-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .slide-content p {
+    font-size: 0.9rem;
+  }
+
+  .btn-participer {
+    padding: 6px 15px;
+    font-size: 0.8rem;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-content {
+    bottom: 30px;
+    padding: 15px 20px;
+    max-width: 90%;
+  }
+
+  .slide-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .slide-content p {
+    font-size: 1rem;
+  }
+
+  .btn-participer {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+    padding: 8px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .slide-content {
+    bottom: 70px;
+    padding: 30px 60px;
+    max-width: 70%;
+  }
+
+  .slide-content h2 {
+    font-size: 3rem;
+  }
+
+  .slide-content p {
+    font-size: 1.5rem;
+  }
+
+  .btn-participer {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
+
+  .arrow {
+    font-size: 2.5rem;
+    padding: 12px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .slide-content {
+    bottom: 80px;
+    padding: 40px 80px;
+    max-width: 60%;
+  }
+
+  .slide-content h2 {
+    font-size: 3.5rem;
+  }
+
+  .slide-content p {
+    font-size: 1.7rem;
+  }
+
+  .btn-participer {
+    padding: 14px 35px;
+    font-size: 1.2rem;
+  }
+
+  .arrow {
+    font-size: 3rem;
+    padding: 14px;
+  }
+}
