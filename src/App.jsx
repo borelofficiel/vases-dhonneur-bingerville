@@ -1,5 +1,5 @@
-// Import du router
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// Import des routes
+import { Routes, Route } from "react-router-dom";
 
 // Import des composants
 import Navbar from "./components/Navbar";
@@ -14,22 +14,25 @@ import Accueil from "./pages/Accueil";
 
 function App() {
   return (
-    <Router>
+    <>
       {/* Navbar affichée sur toutes les pages */}
       <Navbar />
 
       {/* Gestion des pages */}
       <Routes>
         <Route path="/" element={<Accueil />} />
-        {/* <Route path="/annonce" element={<Annonce />} /> */}
-        {/* <Route path="/eglises" element={<NosEglises />} /> */}
-        {/* <Route path="/dimes" element={<Dimes />} /> */}
-        {/* <Route path="/connexion" element={<Connexion />} /> */}
+
+        {/*
+        <Route path="/annonce" element={<Annonce />} />
+        <Route path="/eglises" element={<NosEglises />} />
+        <Route path="/dimes" element={<Dimes />} />
+        <Route path="/connexion" element={<Connexion />} />
+        */}
       </Routes>
 
       {/* Footer affiché sur toutes les pages */}
       <Footer />
-    </Router>
+    </>
   );
 }
 
